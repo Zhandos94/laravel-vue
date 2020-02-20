@@ -19,10 +19,9 @@ class ContactsController extends Controller
     public function store()
     {
         $this->authorize('create', Contact::class);
-
         $contact = request()->user()->contacts()->create($this->validateData());
 
-        return (new ContactResource($contact))->response()->setStatusCode(201);
+        return (new ContactResource($contact))->response()->setStatusCode(Response::HTTP_CREATED);
     }
 
     public function update(Contact $contact)

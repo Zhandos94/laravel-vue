@@ -59,12 +59,28 @@
 <script>
     export default {
         name: "App",
-        props: {
-        },
+        props: [
+            'user'
+        ],
         data: function () {
             return {
                 title: 'Test title',
             }
+        },
+        mounted() {
+            window.axios.interceptors.request.use(
+                (config) => {
+                    if (config.method === 'get') {
+                        config.url = config.url + '?api_token=' + this.user.api_token;
+                    } else {
+                        config.data = {
+                            ...config.data,
+                            api_token: this.user.api_token
+                        };
+                    }
+                    return config;
+                }
+            )
         },
         watch: {
             $route(to, from) {
@@ -73,6 +89,6 @@
             title() {
                 document.title = this.title
             }
-        }
+        },
     };
 </script>
