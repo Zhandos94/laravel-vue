@@ -19,12 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::resource('/task', 'TaskController', [
-    'except' => ['edit', 'show']
-
-]);
-
-
+//Route::resource('/task', 'TaskController', [
+//    'except' => ['edit', 'show']
+//]);
 
 Route::middleware('auth:api')->group(function () {
 

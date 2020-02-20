@@ -13,7 +13,6 @@ class ContactsController extends Controller
     {
         $this->authorize('viewAny', Contact::class);
 
-
         return ContactResource::collection(request()->user()->contacts);
     }
 
