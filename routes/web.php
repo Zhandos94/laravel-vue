@@ -13,10 +13,11 @@
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/logout-manual', function () {
+    request()->session()->invalidate();
 });
 
-Route::get('route', function () {
-    echo 'first';
-});
+
+Route::get('/home', 'HomeController@index')->name('home');
+
