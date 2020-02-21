@@ -67,7 +67,9 @@
                 title: 'Test title',
             }
         },
-        mounted() {
+        created() {
+            this.title = this.$route.meta.title;
+
             window.axios.interceptors.request.use(
                 (config) => {
                     if (config.method === 'get') {
