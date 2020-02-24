@@ -20,7 +20,7 @@ class ContactResource extends JsonResource
                 'name' => $this->name,
                 'email' => $this->email,
                 'company' => $this->company,
-                'birthday' => $this->birthday->format('m/d/y'),
+                'birthday' => $this->birthday->format('m/d/Y'),
                 'last_updated' => $this->updated_at->diffForHumans(),
             ],
             'links' => [
