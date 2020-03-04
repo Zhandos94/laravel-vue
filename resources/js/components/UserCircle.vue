@@ -13,7 +13,7 @@
         ],
 
         computed: {
-            userCircle: function () {
+            userCircle: function() {
                 return this.name.match(/[A-Z]/g).slice(0, 2).join('');
             }
         }

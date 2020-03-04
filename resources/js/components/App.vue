@@ -43,7 +43,8 @@
                     </div>
 
                     <div class="flex items-center">
-
+                        <SearchBar />
+                        <UserCircle :name="user.name" />
                     </div>
                 </div>
 
@@ -57,6 +58,9 @@
 </template>
 
 <script>
+    import UserCircle from './UserCircle';
+    import SearchBar from '../components/SearchBar';
+
     export default {
         name: "App",
         props: [
@@ -64,8 +68,12 @@
         ],
         data: function () {
             return {
-                title: 'Test title',
+                title: '',
             }
+        },
+        components: {
+            UserCircle,
+            SearchBar
         },
         created() {
             this.title = this.$route.meta.title;
